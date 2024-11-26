@@ -6,22 +6,22 @@
     "node": ">=18"
   },
   "scripts": {
-    "build": "phat-fn build --experimentalAsync",
-    "test": "tsx tests/test.ts",
-    "set-secrets": "tsx scripts/setSecrets.ts",
-    "lint": "tsc --noEmit",
-    "publish-agent": "phat-fn build --experimentalAsync && tsx scripts/publish.ts"
+    "build": "tsup --config tsup.config.ts",
+    "test": "vitest --testTimeout=60000",
+    "publish-agent": "npm run build && tsx scripts/publish.ts",
+    "set-secrets": "tsx scripts/setSecrets.ts"
+  },
+  "dependencies": {
+    "@phala/wapo-env": "^0.9.4",
+    "hono": "^4.5.6"
   },
   "devDependencies": {
-    "@phala/fn": "^0.2.22",
-    "blakejs": "^1.2.1",
-    "crypto-js": "^4.2.0",
+    "@types/node": "^22.1.0",
     "dotenv": "^16.4.5",
-    "js-sha3": "^0.9.3",
     "thirdweb": "^5.32.3",
+    "tsup": "^8.2.4",
     "tsx": "^4.7.1",
-    "typescript": "^5.3.3",
-    "wyhash": "^1.0.0"
-  },
-  "dependencies": {}
+    "typescript": "^5.5.4",
+    "vitest": "^2.0.5"
+  }
 }

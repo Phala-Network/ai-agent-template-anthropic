@@ -33,6 +33,12 @@ The Anthropic AI Agent template is a **MINIMAL** template to build an AI Agent t
 - ⛑️ Secure: Execution guarded by rock solid TEE / Intel SGX
 - 🔒 Private: Host API keys and user privacy at ease
 - 💎 Unstoppable: Powered by IPFS and Phala's 35k+ decentralized TEE workers
+- :fire: [**hono/tiny** Support](https://hono.dev/docs/api/presets#hono-tiny): a small, simple, and ultrafast web framework built on Web Standards.
+- 🧪: [Vite Test Framework](https://vitest.dev/guide/): Vite Testing Framework support, but your free to change the test framework to your desire.
+
+> **NOTICE**
+>
+> We recommend using @hono/tiny to avoid a large bundle size and the 20MB final artifact limitation.
 
 [//]: # (<img width="320" src="https://media1.tenor.com/m/NBtFH5F9QTgAAAAd/what-is-my-purpose-butter.gif" />)
 
@@ -61,19 +67,21 @@ npm run test
 
 Expected Test Results
 ```shell
-INPUT: {"method":"GET","path":"/ipfs/CID","queries":{"chatQuery":["When did humans land on the moon?"]},"secret":{"anthropicApiKey":"ANTHROPIC_API_KEY"},"headers":{}}
-GET RESULT: {
-  status: 200,
-  body: `{"message":"The first human moon landing took place on July 20, 1969, during NASA's Apollo 11 mission. On that date, American astronauts Neil Armstrong and Buzz Aldrin became the first humans to set foot on the lunar surface, while their fellow crew member Michael Collins orbited the moon in the command module.\\n\\nArmstrong famously declared, \\"That's one small step for man, one giant leap for mankind,\\" as he stepped onto the moon's surface.\\n\\nFollowing Apollo 11, there were five more successful crewed moon landings as part of the Apollo program:\\n\\n1. Apollo 12 (November 1969)\\n2. Apollo 14 (February 1971)\\n3. Apollo 15 (July-August 1971)\\n4. Apollo 16 (April 1972)\\n5. Apollo 17 (December 1972)\\n\\nApollo 17 was the last crewed mission to the moon to date. In total, 12 astronauts have walked on the moon's surface."}`,
-  headers: {
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin': '*'
-  }
-}
 Now you are ready to publish your agent, add secrets, and interact with your agent in the following steps:
 - Execute: 'npm run publish-agent'
 - Set secrets: 'npm run set-secrets'
-- Go to the url produced by setting the secrets (e.g. https://wapo-testnet.phala.network/ipfs/QmPQJD5zv3cYDRM25uGAVjLvXGNyQf9Vonz7rqkQB52Jae?key=b092532592cbd0cf)
+- Go to the url produced by setting the secrets 
+
+ ✓ tests/index.test.ts (2) 6157ms
+   ✓ Test Anthropic AI Agent Contract (2) 6156ms
+     ✓ GET Test: Pass chatQuery through URL Query 2722ms
+     ✓ POST Test: Pass chatQuery and model through body of POST request 3434ms
+
+ Test Files  1 passed (1)
+      Tests  2 passed (2)
+   Start at  16:30:03
+   Duration  6.36s (transform 23ms, setup 6ms, collect 31ms, tests 6.16s, environment 0ms, prepare 39ms)
+
 ```
 
 ### Publish Your AI Agent
